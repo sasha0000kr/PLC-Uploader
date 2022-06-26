@@ -40,16 +40,16 @@ def runfile (filename):
     os.system ('chmod +x %s.sh'% "main")
     print ("Starting subprocess: " + "main.sh\n".center (65, "-"))
     print ("")
-    process = subprocess.run ("bash %s.sh"% "main", capture_output=True)
-    out = process.stdout
+    #process = subprocess.run ("bash %s.sh"% "main", capture_output=True)
+    #out = process.stdout
 
-    #os.system ("./%s.sh"% "main" )
+    os.system ("bash %s.sh"% "main" )
     #subprocess.call("main.sh", shell=True)
     print ("\n")
     print ("-".center (65, "-"))
 
-    print ("Process STDOUT:" + str (out))
-    print ("Stop subprocess: \n" + str (process) + "\nPROCESS STDOUT: "  + str (out))
+    #print ("Process STDOUT:" + str (out))
+    #print ("Stop subprocess: \n" + str (process) + "\nPROCESS STDOUT: "  + str (out))
     
     print ("Clearing cache")
     os.chdir ("../")
