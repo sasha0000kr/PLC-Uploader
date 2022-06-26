@@ -38,14 +38,14 @@ def runfile (filename):
     print ("Starting subprocess: " + "main.sh")
     print ("Obtaining file execution rights")
     os.system ('chmod +x %s.sh'% "main")
-    print ("Starting subprocess: " + "main.sh".center (65, "-"))
+    print ("Starting subprocess: " + "main.sh\n".center (65, "-"))
     print ("")
-    process = subprocess.run ("./%s.sh"% "main", capture_output=True)
+    process = subprocess.run ("bash %s.sh"% "main", capture_output=True)
     out = process.stdout
 
     #os.system ("./%s.sh"% "main" )
     #subprocess.call("main.sh", shell=True)
-    print ("")
+    print ("\n")
     print ("-".center (65, "-"))
 
     print ("Process STDOUT:" + str (out))
