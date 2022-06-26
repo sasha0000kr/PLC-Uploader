@@ -38,7 +38,8 @@ def runfile (filename):
     print ("Starting subprocess: " + "main.sh")
     print ("Obtaining file execution rights")
     os.system ('chmod +x %s.sh'% "main")
-    print ("Starting subprocess: " + "main.sh\n".center (65, "-"))
+    print ("Starting subprocess: ")
+    print ("main.sh".center (65, "-"))
     print ("")
     #process = subprocess.run ("bash %s.sh"% "main", capture_output=True)
     #out = process.stdout
@@ -55,7 +56,7 @@ def runfile (filename):
     os.chdir ("../")
     print ("Work direcotory: " + str (os.getcwd ()))
     os.system ("rmdir --ignore-fail-on-non-empty %s" %shortfile)
-    return {"ExitCode": out, "STDOUT": out}
+    #return {"ExitCode": out, "STDOUT": out}
 
 
 @app.post("/load")
