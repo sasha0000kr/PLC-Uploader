@@ -5,7 +5,21 @@ import zipfile
 import shutil
 import os
 
-app = FastAPI()
+app = FastAPI (
+    title="Загрузчик ПЛК",
+    description="Приложение для загркузки и зпуска на программируемых логических контроллеров на базе встраимваемых операционных систем. В основе лежит универсальность и кроссплатформенность. ПО выполнено в рамках курсового проекта КП.15.02.10.22.09. Подробнее о проекте на GitHub.",
+    version="0.3",
+
+    contact={
+        "name": "Краснов Александр Сергеевич",
+        "url": "https://github.com/sasha0000kr/PLC-Uploader",
+        "email": "sasha0000kr@gmail.com",
+    },
+    license_info={
+        "name": "MIT License",
+        "url": "https://ru.wikipedia.org/wiki/Лицензия_MIT",
+    },
+)
 
 
 def runfile (filename):
@@ -24,12 +38,16 @@ def runfile (filename):
     print ("Starting subprocess: " + "main.sh")
     print ("Obtaining file execution rights")
     os.system ('chmod +x %s.sh'% "main")
-    print ("Starting subprocess: " + "main.sh")
+    print ("Starting subprocess: " + "main.sh".center (65, "-"))
+    print ("")
     process = subprocess.run ("./%s.sh"% "main", capture_output=True)
     out = process.stdout
 
     #os.system ("./%s.sh"% "main" )
     #subprocess.call("main.sh", shell=True)
+    print ("")
+    print ("-".center (65, "-"))
+
     print ("Process STDOUT:" + str (out))
     print ("Stop subprocess: \n" + str (process) + "\nPROCESS STDOUT: "  + str (out))
     
